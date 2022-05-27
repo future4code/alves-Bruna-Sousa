@@ -101,6 +101,17 @@ div:last-child {
     text-align: center;
 }
 
+#lupa{
+    width:15px;
+}
+
+#botao-procurar:hover{
+    opacity: 0,5;
+}
+
+#botao-procurar:active{
+    opacity: 1;
+}
 
 table {
     width: 60%;
