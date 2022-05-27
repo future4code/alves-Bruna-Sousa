@@ -114,6 +114,9 @@ td button {
     border-radius: 5px;
     color: black;
 }
+.foto {
+   height: 70px;
+}
 
 .container-do-search {
     margin-top: 20px;
