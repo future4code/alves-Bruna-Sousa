@@ -9,6 +9,7 @@
     padding: 0;
 }
 
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -125,6 +126,7 @@ div:last-child {
 table {
     width: 60%;
     text-align: center;
+    margin: auto;
 }
 
 td button {
@@ -153,7 +155,8 @@ td button {
     font-size: 10px;
     color: black;
 }
+#botaoVoltar{ text-align: center }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #635a3d;
 }
