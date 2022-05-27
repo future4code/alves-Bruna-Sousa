@@ -105,6 +105,15 @@ div:last-child {
     width:15px;
 }
 
+.botaoComprar:hover{
+    background-color: #ffaf43;
+}
+
+.botaoComprar:active{
+  color: white;
+}
+
+
 #botao-procurar:hover{
     opacity: 0,5;
 }
