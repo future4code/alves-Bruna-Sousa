@@ -225,13 +225,17 @@ form label {
     font-weight: bolder;
 }
 #contatos-1{
-    background-color: aqua;
+    background-color: black;
     text-align: center;
 }
 #contatos-1>h5{
     font-size: 35px;
     color: orange;
 }
+#contatos-1>p{
+    color: white;
+}
+
 #github{
     width: 80px;
 }
