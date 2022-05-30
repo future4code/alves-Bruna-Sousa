@@ -1,0 +1,50 @@
+#bemVinda {
+    background-color: palevioletred;
+    color: yellow;
+    display:inline;
+}
+.estoque {
+    background-color: palevioletred;
+    color: yellow
+}
+.menu {
+    background-color: pink;
+    display: inline;
+}
+.titulosPaginas {
+    background-color: yellow;
+    color:palevioletred;
+    display: inline;
+
+}
+    #produto  {
+        background-color: plum;
+        display: inline;
+    }
+
+    #sobreMenu {
+        background-color: black;
+        color: palevioletred;
+        
+    }
+    .listaMenu {
+        color: palevioletred;
+    }
+    .vendedor{
+        color: blueviolet;
+        
+    }
+    .marketing{
+        color: pink;
+    }
+    .Operador{
+        color: rosybrown;
+    }
+    .gerente{
+        color: palevioletred;
+    }
+
+
+
+
+
