@@ -56,3 +56,46 @@ h3{
     width: 640px;
 
 }
+footer{
+    background-color: blueviolet;
+    padding: 3px;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
+    #pesquisa{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #logo{
+        color: white;
+        font-size: 8px;
+    }
+    #videos{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        margin-top: 30px;
+        margin-bottom: 45px;
+        gap: 20px;
+}    
+}
+
+@media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+    #videos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        margin-top: 30px;
+        margin-bottom: 45px;
+        gap: 20px;
+}    
+    }
