@@ -1,0 +1,100 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+#menu{
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px 5px 10px;
+    border: 2px;
+
+}
+#icone-menu{
+    width: 13px;
+    padding: auto;
+}
+
+#menu1{
+    display: flex;
+    text-align: left;
+}
+#menu1>h5{
+    padding: 0px 8px 0px;
+    font-size: 18px;
+}
+#botao-login>button{
+    padding: 2px 4px 2px 4px;
+}
+.setinha{
+    width: 10px;
+    align-items: flex-end;
+    text-align: right;
+}
+#tela{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+#outros-icones{
+    width: 15px;
+    padding: 4px 4px 4px 4px;
+}
+#menu-lateral{
+    background-color: #f2d0e0;
+    flex-direction: column;
+    align-content: center;
+        height: 45rem;
+        width: 20rem;
+        left: 0;
+        right: 0;
+}
+#escrita-lateral{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    list-style-type: none;
+    padding: 3px 3px 3px 3px;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;    
+}
+#chocolate{
+    width: 185px;
+}
+.card1{
+    height: 260px;
+    width: 185px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 0px;
+    background-color: white;
+    border-style: dotted;
+    box-shadow: 10px 5px 5px darkgrey; 
+
+}
+.card1>h4{
+    padding: 3px 0px 8px 0px;
+    text-align: center;
+}
+.card1>p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bolder;
+}
+#fim{
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px 5px 10px;
+    border: 2px;
+}
+#fim>h4{
+    text-align: center; 
+
+}
