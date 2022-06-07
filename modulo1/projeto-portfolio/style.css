@@ -1,0 +1,244 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#topMenu{
+    background-image: url(imagens/digital_background___plexus_by_gentaro_de_averial-d721rui.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+nav>h2{
+    color: orange;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+nav>ul>li{
+    display: inline-block;
+    padding: 10px 25px;
+    list-style-type: none;
+}
+nav>ul>li>a{
+    color:antiquewhite;
+   text-decoration: none;
+   text-transform: capitalize;
+}
+nav>ul>li>a:hover{
+    color: orange;
+
+}
+
+#minhaFoto{
+    width: 180px;
+    
+}
+.inicio{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    text-align: center;
+    align-items: center;
+}
+.inicio>h4{
+    color:orange;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+.inicio>h1{
+    color: white;
+    margin: 20px 0px 20px;
+    left: 2px;
+    font-size: 75px;
+}
+.inicio>h3{
+    color: orange;
+    margin-top: 5px;
+    left: 2px;
+}
+.fundo-sobre-mim{
+    background-color: black;
+    width: 100%;
+}
+
+.texto-sobre>h1{
+    margin: 0px 0px 35px;
+    padding-top: 25px;
+    color: white;
+    text-align: center;
+}
+
+.texto-sobre>p{
+    color: wheat;
+    text-align: center;
+    padding-bottom: 25px;
+}
+.menu-projetos{
+    background-color: #101010;
+    width: 100%;
+    padding: 100px 0px;
+}
+#titulo-projetos>h2{
+    color: aliceblue;
+    font-size: 75px;
+    width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+}
+.caixa-de-projetos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    flex-wrap: wrap;
+}
+#imgjavascript{
+    width: 80px;
+}
+.card1{
+    background-color: orange;
+    height: 300px;
+    width: 335px;
+    border: 20px;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+.card1>h5{
+    color: white;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+.card1>p{
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
+
+#imagem-demais{
+    width: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.Demais-areas{
+    background-image: url(imagens/digital_background___plexus_by_gentaro_de_averial-d721rui.png);
+    color: white;
+}
+
+#formulario-contato{
+    font-family: Verdana,Tahoma,sans-serif;
+    font-size: 15px;
+    max-width: 500px;
+    color: white;
+}
+#formulario-contato>h1{
+        margin-bottom: 20px;
+        margin-left: 20px;
+}
+input, textarea {
+    width: 200px;
+    padding: 10px;
+    color: black;
+    margin-left: 20px;
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}
+input:hover, textarea:hover, input:focus, textarea:focus {
+    border-color: #000066;
+    box-shadow: 5px 0px 9px #FFFF00;
+    background-color: #66FFFF;
+    color: black;
+    font-weight: bold;
+}
+
+.enviar {
+    background-color: #66FFFF;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+
+textarea {
+    width: 400px;
+    height: 120px;
+    line-height: 20px;
+    max-width: 400px;
+}
+
+form label {
+    margin-left: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#fundo-formulario{
+    background-image: url(imagens/digital_background___plexus_by_gentaro_de_averial-d721rui.png);
+    width: 100%;
+}
+.botao1{
+    color: orange;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+
+}
+.botao1:hover{
+    color: black;
+    background-color: orange;
+}
+.contatos{
+   width: 100%;
+   height: 240px;
+   background-color: #191919;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+.contatos>p{
+    color: white;
+    font-size: 35px;
+    margin-bottom: 25px;
+    font-weight: bolder;
+}
+#contatos-1{
+    background-color: black;
+    text-align: center;
+}
+#contatos-1>h5{
+    font-size: 35px;
+    color: orange;
+}
+#contatos-1>p{
+    color: white;
+}
+
+#github{
+    width: 80px;
+}
+#linkedin{
+    width: 80px;
+}
