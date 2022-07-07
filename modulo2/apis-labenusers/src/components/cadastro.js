@@ -40,7 +40,8 @@ export default class TelaCadastro extends React.Component {
 
 
    .catch ((err) => {
-    alert(err.response.data.message)
+    alert("Verifique se a data ")
+    console.log(erro.response.data.message)
 
    })
 
@@ -56,9 +57,10 @@ export default class TelaCadastro extends React.Component {
         <button onClick={this.props.irParaLista}>Ir para lista de cadrasto</button>
         <h2>Cadrasto</h2>
         <input 
+        type="text"
         placeholder={"Nome"}
-        value={this.state.nome}
-        onChange={this.chamarNome}
+       // value={}
+       // onChange={}
         />
         <input 
         placeholder={"E-mail"}
