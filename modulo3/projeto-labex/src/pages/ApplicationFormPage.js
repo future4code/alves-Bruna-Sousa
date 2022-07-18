@@ -4,6 +4,10 @@ import Whatssap from "../imagens/Whatssap.png";
 import Instagram from "../imagens/Instagram.png";
 import ImagemFoguete from "../imagens/ImagemFoguete.png"
 import { createGlobalStyle } from 'styled-components';
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -63,6 +67,9 @@ font-size: 18px;
 margin: 10px;
 border-radius: 8%;
 display: grid;
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+width: 300px;
+}
 `
 const TextArea = styled.textarea`
 border: solid 3px black;
@@ -83,6 +90,9 @@ font-size: 18px;
 margin: 10px;
 border-radius: 8%;
 display: grid;
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+width: 300px;
+}
 `
 const H1 = styled.h1`
 margin: 10px;
@@ -92,7 +102,85 @@ color: black;
 
 // Formulario de inscrição
 
-function ApplicationFormPage () {
+export function ApplicationFormPage () {
+	const [dataTrip, setDataTrip] = useState([]) //sempre fica dentro do data-trips mas verificar no navegadoor com console
+    const [name, setName] = useState("")
+	const [age, setAge] = useState("")
+	const [applicationText, setApplicationText] = useState("")
+	const [profession, setProfession] = useState("")
+	const [country, setCountry] = useState("")
+	const [tripId, setTripId] = useState("")
+
+	const guardarViagem = (event) => {
+		setTripId( event.target.value)
+	}
+	const guardarName = (event) => {
+		setName( event.target.value )
+	  }
+	  const guardarIdade = (event) => {
+		setAge( event.target.value )
+	  }
+	  const guardarTexto = (event) => {
+		setApplicationText( event.target.value )
+	  }
+	  const guardarProfession = (event) => {
+		setProfession( event.target.value )
+	  }
+	  const guardarPais = (event) => {
+		setCountry( event.target.value )
+	  }
+	  function criarCadastro ()  {
+		const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/Bruna-Vitoria-Alves/trips/${tripId}/apply`
+		const body = {
+		  name: name,
+		  age: age,
+		  applicationText: applicationText,
+		  profession: profession,
+		  country: country,
+		  tripId: tripId
+		}
+		axios.post(url,body, tripId)
+			.then ((res) => {
+				alert("Inscrição cadrastada com sucesso!")
+				console.log(res.data.massage)
+		   
+			   }).catch ((erro) => {
+				alert("Não foi possivel cadastrar")
+				
+			
+			   })
+			}
+	  
+	
+	
+	
+	function buscarViagem  () {
+	  const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Bruna-Vitoria-Alves/trips"
+	  axios.get(url)
+	  .then((res) =>{
+		console.log(res.data.trips)
+		setDataTrip(res.data.trips) // arnazena o valor no meu estado
+	  }).catch((err) =>{
+		console.log(err)
+	  })
+	}
+	useEffect (() => { // Usado para o ciclo de vida quando a tela carregar aparecer o componente.
+	  buscarViagem()
+	},[])
+  
+   const opcoes = dataTrip.map((trip)=> { // é so um parametro
+	// Necessario o key com id para saber que eles não estão se repetindo
+	return(
+		<option key={trip.name} value={trip.name}>{trip.name}</option> 
+	)
+  
+   })
+
+   const navigate = useNavigate()
+   const goToback = () => { 
+    navigate(-1)
+  }
+	
 
 
     return(
@@ -107,17 +195,19 @@ function ApplicationFormPage () {
                 <form>
                   <div>
                   <label for="nome"></label>
-	                <Input type='text' id='nome' name='nome' placeholder="Seu nome" required />
+	                <Input type='text' id='nome' name='nome' onChange={guardarName} value={name} placeholder="Seu nome" required />
                   </div>
-                  <label for="viagem"></label>
-	                <Input type='text' id='viagem' name='viagem' placeholder="Nome da viagem" required />
+                  <label for="escolha a viagem"></label>
+	              <Select name="viagem" id="viagem" onChange={guardarViagem} value={tripId}>
+				  {opcoes}
+				  </Select>
                   <div>
                   <label for="idade"></label>
-	                <Input type='numer' id='idade' name='idade' placeholder="Sua idade" required />
+	                <Input type='numer' id='idade' name='idade' onChange={guardarIdade} value={age} placeholder="Sua idade" required />
                   </div>
                   <label for="profissao"></label>
-	                <Input type='text' id='profissao' name='profissao' placeholder="Profissão" required />
-                  <Select name="paises" id="paises">
+	                <Input type='text' id='profissao' name='profissao' onChange={guardarProfession} value={profession} placeholder="Profissão" required />
+                  <Select name="paises" id="paises" onChange={guardarPais} value={country}>    
 	<option value="Brasil" selected="selected">Brasil</option>
 	<option value="Afeganistão">Afeganistão</option>
 	<option value="África do Sul">África do Sul</option>
@@ -368,13 +458,13 @@ function ApplicationFormPage () {
 	<option value="Wallis e Futuna">Wallis e Futuna</option>
 	<option value="Zimbabwe">Zimbabwe</option>
 	<option value="Zâmbia">Zâmbia</option>
-                  </Select>
+                  </Select >
 	                <label for="mensagem"></label>
-	                <TextArea id="mensagem" name="mensagem" rows="4" cols="30" placeholder="Texto para canditadura"></TextArea>
+	                <TextArea id="mensagem" name="mensagem" rows="4" cols="30" onChange={guardarTexto} value={applicationText} placeholder="Texto para canditadura"></TextArea>
 
                 </form>
-            <button>Enviar</button>
-            <button>Voltar</button>
+            <button onClick={criarCadastro}>Enviar</button>
+            <button onClick={goToback}>Voltar</button>
     
           </PaiDeContainer>
         <Footer>
@@ -393,4 +483,3 @@ function ApplicationFormPage () {
     )
 }
 
-export default ApplicationFormPage

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Whatssap from "../imagens/Whatssap.png";
 import Instagram from "../imagens/Instagram.png";
 import ImagemFoguete from "../imagens/ImagemFoguete.png"
 import { createGlobalStyle } from 'styled-components';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -83,7 +85,66 @@ color: black;
 
 // Admin Criar viagem
 
-function CreateTripPage () {
+export function CreateTripPage () {
+  const [name, setName] = useState("")
+  const [planet, setPlanet] = useState("")
+  const [date, setDate] = useState("")
+  const [description, setDescription] = useState("")
+  const [durationInDays, setDurationInDays] = useState("")
+  const token = localStorage.getItem('token')
+
+  const guardarName = (event) => {
+    setName( event.target.value )
+  }
+  const guardarPlanet = (event) => {
+    setPlanet( event.target.value )
+  }
+  const guardarDate = (event) => {
+    setDate( event.target.value )
+  }
+  const guardarDescription = (event) => {
+    setDescription( event.target.value )
+  }
+  const guardarDuration = (event) => {
+    setDurationInDays( event.target.value )
+  }
+
+  function criarViagem ()  {
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/Bruna-Vitoria-Alves/trips"
+    const body = {
+      name: name,
+      planet: planet,
+      date: date,
+      description: description,
+      durationInDays: durationInDays 
+    }
+    axios.post(url,body, {
+      headers: {
+        auth: token 
+  // Essa auth foi pego no console.log do login.
+      }
+  
+     })
+     .then ((res) => {
+      alert("Viagem cadrastada com sucesso!")
+      console.log(res)
+ 
+     }).catch ((erro) => {
+      alert(erro.response.data.massage)
+      console.log(erro.response.data.message)
+  
+     })
+
+
+
+  }
+  
+
+  const navigate = useNavigate()
+  const goToback = () => { 
+   navigate(-1)
+ }
+
 
 
     return(
@@ -98,21 +159,21 @@ function CreateTripPage () {
                 <form>
                   <div>
                   <label for="nome"></label>
-	                <Input type='text' id='nome' name='nome' placeholder="Escolha um nome" required />
+	                <Input type='text' id='nome' value={name} onChange={guardarName} name='nome' placeholder="Escolha um nome" required />
                   </div>
                   <div>
-                  <label for="Lugar Da Viagem"></label>
-	                <Input type='text' id='Lugar Da Viagem' name='Lugar Da Viagem' placeholder="Nome do lugar" required />
+                  <label for="Planeta"></label>
+	                <Input type='text' id='Planeta' value={planet} onChange={guardarPlanet} name='Planeta' placeholder="Nome do Planeta" required />
                   </div>
-	                <label for="mensagem"></label>
-	                <TextArea id="mensagem" name="mensagem" rows="4" cols="30" placeholder="Descrição"></TextArea>
+	                <label for="mensagem sobre"></label>
+	                <TextArea id="menssagem sobre" name="mensagem sobre" value={description} onChange={guardarDescription} rows="4" cols="30" placeholder="Descrição"></TextArea>
                   <label for="dias"></label>
-	                <Input type='number' id='dias' name='dias' placeholder="Quantidade de dias"></Input>
+	                <Input type='number' id='dias' name='dias' value={durationInDays} onChange={guardarDuration} placeholder="Quantidade de dias"></Input>
                   <label for="dataDaViagem"></label>
-	                <Input type='date' id='dataDaViagem' name='dataDaViagem'></Input>
+	                <Input type='date' id='dataDaViagem' name='dataDaViagem' value={date} onChange={guardarDate}></Input>
                 </form>
-            <button>Avançar</button>
-            <button>Voltar</button>
+            <button onClick={criarViagem}>Criar Viagem</button>
+            <button onClick={goToback}>Voltar</button>
     
           </PaiDeContainer>
         <Footer>
@@ -131,4 +192,3 @@ function CreateTripPage () {
     )
 }
 
-export default CreateTripPage

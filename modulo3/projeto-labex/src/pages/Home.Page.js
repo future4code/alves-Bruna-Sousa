@@ -7,13 +7,19 @@ import Instagram from "../imagens/Instagram.png";
 import ListaViagens from "../imagens/ListaViagens.png"
 import Login from "../imagens/Login.png";
 import TelaInicio from "../imagens/TelaInicio.jpg"
-
+import { useNavigate } from 'react-router-dom'
  
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    background-image: url(${TelaInicio});
+  }
+  button {
+    background: rgba(255,255,255,.5);
+    border: solid 2px white;
+    width: 110px;
   }
 `
 
@@ -37,16 +43,22 @@ display: flex;
 align-items: center;
 justify-content: center;
 color: white;
+text-align: center;
 `
 const PaiDeContainer = styled.main`
 display: flex;
 justify-content: center;
 align-items: center;
 justify-content: space-evenly;
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+display: grid;
+grid-template-rows: 50% 50%;
+
+}
 `
 const SectionContainer = styled.section`
 width: 300px ;
-background: rgba(255,255,255,.2);
+background: rgba(255,255,255,.3);
 height: 300px;
 border-radius: 20px;
 box-shadow: 0 5px 15px rgba(0,0,0,.5);
@@ -56,6 +68,7 @@ border: solid 3px white;
 grid-template-rows: 50% 50%;
 align-items: center;
 justify-content: center;
+
 `
 const ImagemLogin = styled.img`
 width: 80px;
@@ -80,7 +93,14 @@ padding-right: 5px;
 
 // Para o usuário escolher entre Àrea Administrativa e Lista de Viagens
 
-function HomePage() {
+export function HomePage() {
+  const navigate = useNavigate()
+  const goToLogin = () => {
+    navigate("/LoginPage")
+  }
+  const goToViagem = () => {
+    navigate("/ListTripsPage")
+  }
 
 
 return (
@@ -92,7 +112,7 @@ return (
             <h2>Labex</h2>
         </Header>
           <DivTitulo>
-             <h1>A sua viagem para qualquer lugar!</h1>
+             <h1>A sua viagem para qualquer lugar do universo.</h1>
           </DivTitulo>
           <PaiDeContainer>
             <SectionContainer>
@@ -100,7 +120,7 @@ return (
                 <img src={ListaViagens} alt="Quer conhecer nossa viagens entre em: " />
               </section>  
               <section>
-                <button>Viagens</button>
+                <button onClick={goToViagem}>Viagens</button>
               </section> 
             </SectionContainer>
             <SectionContainer>
@@ -108,7 +128,7 @@ return (
                 <ImagemLogin src={Login} alt="Você é um administrador da nossa página entre em: " />
               </section>  
               <section>
-                <button>Login</button>
+                <button onClick={goToLogin}>Login</button>
               </section>    
             </SectionContainer>      
           </PaiDeContainer>
@@ -130,4 +150,3 @@ return (
 
 }
 
-export default HomePage;

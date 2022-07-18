@@ -4,7 +4,9 @@ import Whatssap from "../imagens/Whatssap.png";
 import Instagram from "../imagens/Instagram.png";
 import ImagemFoguete from "../imagens/ImagemFoguete.png"
 import { createGlobalStyle } from 'styled-components';
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import TelaLogin from "../imagens/TelaLogin.jpg"
 
 
 
@@ -13,8 +15,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: #e0f2fe ;
+    background-image: url(${TelaLogin}) ;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+  }
+  button {
+    background: rgba(255,255,255,.5);
+    border: solid 2px white;
   }
 `
 
@@ -54,7 +60,7 @@ position: relative;
 `
 const SectionContainer = styled.section`
 width: 300px ;
-background: rgba(255,255,255,.2);
+background: rgba(255,255,255,.1);
 height: 300px;
 border-radius: 20px;
 box-shadow: 0 5px 15px rgba(0,0,0,.5);
@@ -66,25 +72,46 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, 50%);
+text-align: center;
 `
 
 const Input = styled.input`
-border: solid 3px black;
+border: solid 3px white;
 outline: none;
 background: none;
 color: white;
 font-size: 18px;
 margin: 10px;
 border-radius: 8%;
+::-webkit-input-placeholder {
+   color: white;
+   font:  verdana, arial, sans-serif;
+}
+
+:-moz-placeholder {
+   color: white;
+   font:  verdana, arial, sans-serif;
+}
+
+::-moz-placeholder {
+   color: white;  
+   font:  verdana, arial, sans-serif;
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+   font: verdana, arial, sans-serif;
+}
 `
 const H1 = styled.h1`
 margin: 10px;
 color: white;
 `
 
+
 // Para fazer login
 
-function LoginPage () {
+ export function LoginPage () {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -105,6 +132,9 @@ function LoginPage () {
   axios.post(url, body)
   .then((res) => {
     console.log(res)
+    goToAdmin(navigate) //Para ir para a página seguinte em caso for true
+    localStorage.setItem('token', res.data.token)
+    console.log(res.data.token)
   }).catch((err)=> {
     console.log(err.response.data.message)
     alert(err.response.data.message)
@@ -112,6 +142,14 @@ function LoginPage () {
 }
 //Fazer a chamada da função fazerlogin no botão enviar
 
+const navigate = useNavigate()
+  const goToAdmin= () => {
+    navigate("/AdminHomePage")
+  }
+  const goToback = () => { // Chamei no then da Api pq o onClick está sendo ultilizada nela.
+    navigate(-1)
+  }
+// Falta fazer o négocio de guarda informções no pc local
 
     return(
         <PaiDeTodos>
@@ -133,7 +171,7 @@ function LoginPage () {
                   </div>
                 </form>
             <button onClick={fazerLogin}>Avançar</button>
-            <button>Voltar</button>
+            <button onClick={goToback}>Voltar</button>
             </SectionContainer>      
           </PaiDeContainer>
         <Footer>
@@ -152,4 +190,3 @@ function LoginPage () {
     )
 }
 
-export default LoginPage
