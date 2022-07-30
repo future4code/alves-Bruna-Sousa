@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import AddRecipsPage from "./pages/AddRecipsPage/AddRecipsPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RecipeDetailPage from "./pages/RecipeDetailPage/RecipeDeatilPage";
+import RecipesListPage from "./pages/RecipesListPage/RecipesListPage";
+import SingUpPage from "./pages/SingUpPage/SingUpPage";
+import Router from "./routes/Router";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router />
     </div>
   );
 }
