@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 import Whatssap from "../imagens/Whatssap.png";
 import Instagram from "../imagens/Instagram.png";
 import ListaViagens from "../imagens/ListaViagens.png"
-import Login from "../imagens/Login.png";
+import Login from "../imagens/login.png";
 import TelaInicio from "../imagens/TelaInicio.jpg"
 import { useNavigate } from 'react-router-dom'
  
@@ -50,9 +50,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 justify-content: space-evenly;
+justify-items: center; 
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
 display: grid;
 grid-template-rows: 50% 50%;
+justify-items: center; 
 
 }
 `
