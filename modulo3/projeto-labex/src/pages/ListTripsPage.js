@@ -6,6 +6,7 @@ import ImagemFoguete from "../imagens/ImagemFoguete.png"
 import { createGlobalStyle } from 'styled-components';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import ImagemFundo from "../imagens/fundo-admin.jpg"
 
 
  
@@ -13,13 +14,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: #e0f2fe ;
+    background: url(${ImagemFundo}) ;
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
   button {
     background: rgba(255,255,255,.5);
     border: solid 2px blue;
     width: 110px;
+    color: white;
   }
 `
 const Div = styled.div`
@@ -29,6 +31,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 box-sizing: border-box;
+position: relative;
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
 grid-template-rows: 150px 1fr;
 }
@@ -43,7 +46,7 @@ margin-right: 60px;
 
 `
 const H1 = styled.h1`
-color: #002f83;
+color: white;
 font-size: 40px;
 margin-bottom: 0%;
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -61,11 +64,18 @@ margin-top: 20px;
 justify-content: center;
 align-items: center;
 display: grid;
+position: relative;
 color: white;
 margin-bottom: 5px;
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
 width: 80%;
 }
+`
+const Section = styled.section`
+display: grid;
+align-items: center;
+justify-content: center;
+justify-items: center; // Foi oq deixou os cards centralizados
 `
 
 // Para vermos todas as viagens
@@ -118,9 +128,9 @@ const navigate = useNavigate()
         <Button onClick={goToForm}>Inscreva-se</Button>
         <H1>Viagens em planetas paralelos</H1>
       </Card1>
-      <section>
+      <Section>
       {card}
-      </section>
+      </Section>
     </Div>
   )
 
