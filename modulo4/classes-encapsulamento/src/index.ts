@@ -39,7 +39,7 @@ class UserAccount {
     }
 }
 
-const newInstance: UserAccount = new UserAccount("111.111.111-11", "Gabriel", 22)
+const newInstance: UserAccount = new UserAccount("111.111.121-11", "Bruna", 22)
 
 // console.log(newInstance)
 // R: podemos ter acesso através dos métodos.
@@ -71,7 +71,7 @@ class Transaction {
     }
 }
 
-const instanciaUser: UserAccount = new UserAccount("11111111111", "astroDev", 4)
+const instanciaUser: UserAccount = new UserAccount("11111122111", "Dec", 4)
 
 // 3:
 
