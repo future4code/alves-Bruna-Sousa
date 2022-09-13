@@ -1,0 +1,21 @@
+POST http://localhost:3003/user 
+Content-Type: application/json
+
+{
+    "name": "sono",
+    "email": "sono@gmail.com",
+    "password": "1234256"
+}
+
+###
+GET http://localhost:3003/users
+
+###
+POST http://localhost:3003/product
+Content-Type: application/json
+{
+    "name": "beterraba",
+    "price": 12,
+    "image_url": "Imagem não inserida"
+
+}
