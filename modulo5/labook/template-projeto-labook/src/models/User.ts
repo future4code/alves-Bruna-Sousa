@@ -11,6 +11,27 @@ export interface IUserDB {
     role: USER_ROLES
 }
 
+export interface ISignupInputDTO {
+    name: string,
+    email: string,
+    password: string,
+}
+
+export interface ISignupOuputDTO{
+    message:string,
+    token:string
+}
+
+export interface ILoginInputDTO{
+    email: string,
+    password: string
+}
+
+export interface ITokenPayload{
+    id: string,
+    role: USER_ROLES 
+}
+
 export class User {
     constructor(
         private id: string,
