@@ -3,12 +3,12 @@ import User from "../model/User"
 
 class UserData extends BaseDatabase{
 
-    private static tablenNme ="usuario_cookeno"
+    private static tablename ="usuario_cookeno"
 
     async getUserByEmail(email:string):Promise<User|undefined>{
         const result = await this.getConnection()
         .select("*")
-        .from(UserData.tablenNme)
+        .from(UserData.tablename
         .where({ email })
     
         if(!result.length){
