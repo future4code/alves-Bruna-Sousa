@@ -1,10 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { GlobalStyle } from './Global/GlobalStyle';
 import Router from './router/Router';
+
+
+
 
 function App() {
   return (
     <div>
+      <GlobalStyle/>
       <Router/>
     </div>
   );
